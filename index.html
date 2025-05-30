@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCG17ZQR9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HCG17ZQR9M'); // Updated with your correct Measurement ID
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AutoMatchCut</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet'
+        type='text/css'>
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- compare two images -->
+    <!-- <link rel="stylesheet" href="assets/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="assets/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="assets/css/bulma-slider.min.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.webp">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.webp">
+
+
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta property="og:site_name" content="AutoMatchCut: A Retrieval-based Framework for Automatic Match Cutting" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="AutoMatchCut: A Retrieval-based Framework for Automatic Match Cutting" />
+    <meta property="og:description" content="AutoMatchCut: A Retrieval-based Framework for Automatic Match Cutting, 2025." />
+
+    <script src="assets/js/video_comparison.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+
+    <script src="assets/js/bulma-carousel.min.js"></script>
+    <script src="assets/js/bulma-slider.min.js"></script>
+
+
+    <style>
+        .small-bal-container {
+            width: 270px; /* Set the desired width */
+            height: 270px; /* Set the height proportional to the aspect ratio (e.g., 16:9) */
+            margin: 0 auto; /* Center the images */
+            position: relative; /* Maintain the positioning for the slider and labels */
+            overflow: hidden; /* Ensure content stays within the container */
+        }
+    
+        .small-bal-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure images scale proportionally */
+        }
+    </style>
+
+    <style>
+    .small-bal-container-rect {
+        width: 270px; /* Set the desired width */
+        height: 151px; /* Set the height proportional to the aspect ratio (e.g., 16:9) */
+        margin: 0 auto; /* Center the images */
+        position: relative; /* Maintain the positioning for the slider and labels */
+        overflow: hidden; /* Ensure content stays within the container */
+    }
+
+    .small-bal-container-rect img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure images scale proportionally */
+    }
+    </style>
+
+
+</head>
+
+<body>
+    
+    <div class="highlight-clean" style="padding-bottom: 0; text-align: center;">
+        <div class="container" style="max-width: 100%; margin-bottom: 10px;">
+            <!-- Catchier title with larger text and better spacing -->
+            <h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2.5rem; line-height: 1.2; color: #333;"> 
+                AutoMatchCut:
+                <br /> 
+                A Retrieval-based Framework for Automatic Match Cutting
+            </h1>
+        </div>
+        <hr class="divider" style="margin: 10px auto; width: 80%; border: 1px solid #ddd;" />
+        <div class="container author-container" style="margin-top: 10px;">
+            <!-- Authors with balanced spacing and responsive alignment -->
+            <div class="row authors" style="justify-content: center; gap: 15px;">
+                <div class="col">
+                    <h5 style="font-weight: bold;"><a style="text-decoration: none; color: #007bff;">Anonymous Authors</a></h5>
+                </div>
+            </div>
+            <!-- Affiliations -->
+            <div class="row affiliations" style="margin-top: 10px; text-align: center;">
+                <div class="col">
+                    <h6><a style="color: #555;">Anonymous Institutions</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <hr class="divider" />
+
+        <div class="container" style="max-width: col-sm-12;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 style="font-weight: bold;">Match Cut Quality Criteria</h2>
+                    <p style="text-align: justify">
+                        Our criteria are defined as:
+                        <ol start="3" reversed>
+                            <li>Transition is smooth in both audio and frames.</li>
+                            <li>Transition is smooth in only audio or frames.</li>
+                            <li>Transition is not smooth.</li>
+                            <li>No video is retrieved. </li>
+                        </ol>
+                    </p>                    
+                </div>
+            </div>
+            
+        </div>
+
+
+        <hr class="divider" />
+
+        <!-- Score 3 Section -->
+        <div class="container" style="max-width: col-sm-12;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 style="font-weight: bold;">AutoMatchCut Results - Score 3</h2>
+                    <p style="text-align: justify;">
+                        Transition is smooth in both audio and frames.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Results Grid: Row 1 -->
+            <div class="row">
+                <!-- Result ACVaz7n54Eo_30000_40000-BIjHTZsmleI_330000_340000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/ACVaz7n54Eo_30000_40000-BIjHTZsmleI_330000_340000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Motorcycle Race → Helicopter Rescue</div>
+                    </div>
+                </div>
+
+
+                <!-- Result kJ-Zr12uyRk_0_7000-6FEqX_uqGE4_0_7000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/kJ-Zr12uyRk_0_7000-6FEqX_uqGE4_0_7000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Speeches</div>
+                    </div>
+                </div>
+
+                <!-- Result 1QSD-dzEv7Y_40000_50000-TJHGcxFznd4_20000_30000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/1QSD-dzEv7Y_40000_50000-TJHGcxFznd4_20000_30000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Flute → Recorder</div>
+                    </div>
+                </div>
+
+                <!-- Result 2b_2jvy-qos_20000_30000-77DHZFJZnK4_30000_40000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/2b_2jvy-qos_20000_30000-77DHZFJZnK4_30000_40000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Human Screams → Metallic Clatter </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Results Grid: Row 2 -->
+
+            <div class="row">
+
+                <!-- Result VGNrH53GyTA_3000_13000-sXk39l_oB64_30000_40000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/VGNrH53GyTA_3000_13000-sXk39l_oB64_30000_40000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Human Melting → Water Flows</div>
+                    </div>
+                </div>
+
+
+                <!-- Result Yd8JBTdUvrw_30000_40000-QzO6ylLrTGg_30000_40000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/Yd8JBTdUvrw_30000_40000-QzO6ylLrTGg_30000_40000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Didgeridoos</div>
+                    </div>
+                </div>
+
+                <!-- Result 3eGOQOcKkAE_30000_40000-aMxLy5s3y8k_30000_40000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/3eGOQOcKkAE_30000_40000-aMxLy5s3y8k_30000_40000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Canons</div>
+                    </div>
+                </div>
+
+
+                <!-- Result g11bBrhKvug_10000_20000-m1yOTcjRjcM_11000_21000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/g11bBrhKvug_10000_20000-m1yOTcjRjcM_11000_21000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Birds</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Results Grid: Row 3 -->
+            <div class="row">
+
+                <!-- Result f6v9gp1xyPM_30000_40000-s7sRKH_EdAY_80000_90000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/f6v9gp1xyPM_30000_40000-s7sRKH_EdAY_80000_90000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Alerts → Rings</div>
+                    </div>
+                </div>
+
+                <!-- Result G8l2fpUPWro_140000_150000-dqJWTzC3s8I_190000_200000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source
+                                src="assets/automatchcut_videos/scores_3/G8l2fpUPWro_140000_150000-dqJWTzC3s8I_190000_200000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Gun Shots</div>
+                    </div>
+                </div>
+
+
+                <!-- Result lVQP0L9CgNQ_270000_280000-G4BGicWOXAY_120000_130000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source
+                                src="assets/automatchcut_videos/scores_3/lVQP0L9CgNQ_270000_280000-G4BGicWOXAY_120000_130000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Games</div>
+                    </div>
+                </div>
+
+                <!-- Result JwBJ2WaVp9M_110000_120000-3Yc7_n6mDsI_40000_50000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/JwBJ2WaVp9M_110000_120000-3Yc7_n6mDsI_40000_50000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Drums</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Results Grid: Row 4 -->
+            <div class="row">
+
+                <!-- Result YMOX56rEX6Q_20000_30000-gwDxPQDf1Is_20000_30000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/YMOX56rEX6Q_20000_30000-gwDxPQDf1Is_20000_30000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Dog Barks</div>
+                    </div>
+                </div>
+
+
+                <!-- Result aOVPHKqKjyQ_90000_100000-pSc_V9Oi72Q_30000_40000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/aOVPHKqKjyQ_90000_100000-pSc_V9Oi72Q_30000_40000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Car Horns</div>
+                    </div>
+                </div>
+
+                <!-- Result fxznho_kNPY_90000_100000-rOOBAGxxjBk_10000_20000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/fxznho_kNPY_90000_100000-rOOBAGxxjBk_10000_20000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Orchestras</div>
+                    </div>
+                </div>
+
+
+                <!-- Result r79J5BOo3os_420000_430000--UGmXiQ8yiY_50000_60000.mp4 -->
+                <div class="col-md-3">
+                    <div class="gif-container">
+                        <video controls>
+                            <source src="assets/automatchcut_videos/scores_3/r79J5BOo3os_420000_430000--UGmXiQ8yiY_50000_60000.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="gif-label">Water Flows</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Score 2 Section -->
+        <div class="container" style="max-width: col-sm-12;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 style="font-weight: bold;">AutoMatchCut Results - Score 2</h2>
+                    <p style="text-align: justify;">
+                        Transition is smooth in only audio or frames.
+                    </p>
+                </div>
+            </div>
+            <!-- Results Grid: Row 1 -->
+            <div class="row">
+            <!-- Result 3IaIfqq69nw_80000_90000-6uIOGE36tWo_110000_120000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_2/3IaIfqq69nw_80000_90000-6uIOGE36tWo_110000_120000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Audios match and Frames mismatch</div>
+                            </div>
+                    </div>
+
+            <!-- Result 6kYZXki6D7Q_40000_50000-i7GrgCtwAKc_100000_110000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_2/6kYZXki6D7Q_40000_50000-i7GrgCtwAKc_100000_110000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Audios match and Frames mismatch</div>
+                            </div>
+                    </div>
+
+            <!-- Result 7lI4Z6_twLg_50000_60000-zkNbNA2mLIg_20000_30000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_2/7lI4Z6_twLg_50000_60000-zkNbNA2mLIg_20000_30000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Audios mismatch and Frames match</div>
+                            </div>
+                    </div>
+
+            <!-- Result arEur8gF6ik_30000_40000-WBBKiXYVEdM_170000_180000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_2/arEur8gF6ik_30000_40000-WBBKiXYVEdM_170000_180000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Audios match and Frames mismatch</div>
+                            </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Score 1 Section -->
+        <div class="container" style="max-width: col-sm-12;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 style="font-weight: bold;">AutoMatchCut Results - Score 1</h2>
+                    <p style="text-align: justify;">
+                        Transition is not smooth.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Results Grid: Row 1 -->
+            <div class="row">
+            <!-- Result JL0-PGG9kuc_60000_70000-2P1vG5m_l6s_240000_250000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_1/JL0-PGG9kuc_60000_70000-2P1vG5m_l6s_240000_250000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Water → Speech</div>
+                            </div>
+                    </div>
+
+            <!-- Result S1vywaIbQGY_30000_40000-MEVVVTPiN5E_30000_40000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_1/S1vywaIbQGY_30000_40000-MEVVVTPiN5E_30000_40000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Speech → Yells</div>
+                            </div>
+                    </div>
+
+            <!-- Result Xug8OJNzEvI_70000_80000-T0jJZL3GKT0_260000_270000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_1/Xug8OJNzEvI_70000_80000-T0jJZL3GKT0_260000_270000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Ships → Fields</div>
+                            </div>
+                    </div>
+
+            <!-- Result ugSJHtv-C0A_0_10000-4P4ZlKN3DUg_30000_40000.mp4 -->
+                    <div class="col-md-3">
+                            <div class="gif-container">
+                                    <video controls>
+                                            <source src="assets/automatchcut_videos/scores_1/ugSJHtv-C0A_0_10000-4P4ZlKN3DUg_30000_40000.mp4" type="video/mp4">
+                                    </video>
+                            <div class="gif-label">Dogs → Music</div>
+                            </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <hr class="divider" />
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <a class="icon-link" href="assets/videos/nerfies_paper.pdf">
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="content">
+                            <p>
+                                Confidential - For review only. A verbose version will follow upon paper acceptance.
+                            </p>
+                            <p>
+                                We will credit the website template upon paper acceptance.
+                                <!-- we just ask that you link back to this page in the footer.
+                            Please remember to remove the analytics code included in the header of the website which
+                            you do not want on your website. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+        <script src="assets/js/yall.js"></script>
+        <script>
+            yall({
+                observeChanges: true
+            });
+        </script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js">
+        </script>
+        <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+        <!-- Import the component -->
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var video = document.getElementById('speed025');
+                video.playbackRate = 0.1; // Play at half speed
+            });
+        </script>
+       
+        <script>
+            new BeforeAfter({
+                id: '#example1'
+            });
+        </script>
+
+        <script>
+            new BeforeAfter({
+                id: '#example2'
+            });
+        </script>
+
+        <script>
+            new BeforeAfter({
+                id: '#example3'
+            });
+        </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
